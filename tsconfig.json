@@ -1,3 +1,4 @@
+//compilador javascript
 {
   "compilerOptions": {
     "target": "es6",

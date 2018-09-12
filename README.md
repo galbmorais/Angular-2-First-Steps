@@ -1,5 +1,4 @@
-# angular2-quickstart
-Angular 2 First Steps
+# Angular 2 First Steps
 
 Check if have installed NodeJs and Npm
 
