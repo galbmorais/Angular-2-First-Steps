@@ -22,7 +22,7 @@ export class ContatosListaComponent implements OnInit {
             .then((contatos : Contato []) => {
                 this.contatos = contatos;
             }).catch( err => {
-                console.log(err);
+                console.log('Aconteceu erro: ' , err);
             });
     }
 }
