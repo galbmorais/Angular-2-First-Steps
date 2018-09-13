@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ContatosModule } from './contatos/contatos.module';
 import { NavModule } from './nav/nav.module';
+import { DialogService } from './dialog.service';
 
 @NgModule({
     imports: [
@@ -20,6 +21,9 @@ import { NavModule } from './nav/nav.module';
     ],
     declarations: [
         AppComponent
+    ],
+    providers:[
+        DialogService
     ],
     bootstrap: [AppComponent]
 })
