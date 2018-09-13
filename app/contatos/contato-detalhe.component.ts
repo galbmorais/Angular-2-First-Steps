@@ -48,14 +48,18 @@ export class ContatoDetalheComponent implements OnInit{
     }
 
     onSubmit(): void {
-        console.log('New? ' + this.isNew);
+        //console.log('New? ' + this.isNew);
         let promise;
 
         if(this.isNew){
             //novo
+            console.log('Criando ', this.contato);
             promise = this.contatoService.create(this.contato);
         }else{
             //edita
+            console.log('Alterando ', this.contato);
+            promise = this.contatoService.update(this.contato);
+
         }
 
         promise.then( contato => this.location.back());
