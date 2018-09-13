@@ -1,31 +1,35 @@
 <div class="container" style="padding-top:10px;">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" >
             
             <h2>Salvar Contato</h2>
 
-            <div class="form-group">          
-                <label for="nome">Nome</label>
-                <input type="text" class="form-control" placeholder="Digite o Nome"
-                    name="nome" [(ngModel)]="contato.nome">
-            </div>
-    
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" placeholder="Digite o Email" 
-                    name="email" [(ngModel)]="contato.email"> 
-            </div>
-    
-            <div class="form-group">
-                <label for="telefone">Telefone</label>
-                <input type="text" class="form-control" placeholder="Digite o Telefone"
-                    name="telefone" [(ngModel)]="contato.telefone">
-            </div>
-    
-            <button type="submit" class="btn btn-success">Salvar</button>
-            <button type="submit" class="btn btn-secondary" routerLink="/">Voltar</button>
-            <button (click)="log()" class="btn btn-warning">Log</button>
+            <form (ngSubmit)="onSubmit()" #contatoForm="ngForm">
 
+                <div class="form-group">          
+                    <label for="nome" class="form-control-label">Nome</label>
+                    <input type="text" class="form-control" placeholder="Digite o Nome"
+                        required name="nome" [(ngModel)]="contato.nome">
+                </div>
+
+        
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="Digite o Email" 
+                        required name="email" [(ngModel)]="contato.email"> 
+                </div>
+        
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" class="form-control" placeholder="Digite o Telefone"
+                        required name="telefone" [(ngModel)]="contato.telefone">
+                </div>
+        
+                <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
+                <button type="submit" class="btn btn-secondary" routerLink="/">Voltar</button>
+            </form>
+
+            <button (click)="log()" class="btn btn-warning">Log</button>
         </div>
     </div>
 </div>
