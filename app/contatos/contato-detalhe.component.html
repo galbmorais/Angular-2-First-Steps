@@ -1,26 +1,31 @@
-<div class="conteiner" style="padding-top:10px;">
+<div class="container" style="padding-top:10px;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            
+            <h2>Salvar Contato</h2>
 
-    <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        
-        <h2>Salvar Contato</h2>
+            <div class="form-group">          
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" placeholder="Digite o Nome"
+                    name="nome" [(ngModel)]="contato.nome">
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" placeholder="Digite o Email" 
+                    name="email" [(ngModel)]="contato.email"> 
+            </div>
+    
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" class="form-control" placeholder="Digite o Telefone"
+                    name="telefone" [(ngModel)]="contato.telefone">
+            </div>
+    
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <button type="submit" class="btn btn-secondary" routerLink="/">Voltar</button>
+            <button (click)="log()" class="btn btn-warning">Log</button>
 
-        <div class="form-group">          
-            <label for="nome">Nome</label>
-            <input type="text" class="form-control" placeholder="Digite o Nome">
         </div>
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Digite o Email"> 
-        </div>
-
-        <div class="form-group">
-            <label for="telefone">Telefone</label>
-            <input type="text" class="form-control" placeholder="Digite o Telefone">
-        </div>
-
-        <button type="submit" class="btn btn-success">Salvar</button>
-        <button type="submit" class="btn btn-secondary" routerLink="/">Voltar</button>
-
-    </form>
+    </div>
 </div>
