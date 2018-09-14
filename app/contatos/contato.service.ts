@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { Contato } from './contato.model';
 import { CONTATOS } from './contatos-mock';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ContatoService {
@@ -63,5 +64,11 @@ export class ContatoService {
         return new Promise((resolve, reject) => {
             setTimeout(resolve, 1000);
         }).then(() => this.getContatos());
+    }
+
+    search(term: string): Observable<Contato[]> {
+        return this.http
+                   .get(`${this.apiUrl}/?nome=${term}`)
+                   .map((res: Response) => res.json().data as Contato[]);
     }
 }

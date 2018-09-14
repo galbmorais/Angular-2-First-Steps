@@ -15,6 +15,8 @@ import { DialogService } from './../dialog.service';
 export class ContatosListaComponent implements OnInit {
 
     contatos: Contato[];
+    mensagem: {};
+    classesCss: {};
 
     constructor(
         private contatoService: ContatoService,
@@ -41,10 +43,36 @@ export class ContatosListaComponent implements OnInit {
                         .delete(contatoToRemove)
                         .then(() => {
                             this.contatos = this.contatos.filter(contato => contato.id != contatoToRemove.id);
+                            this.mostrarMensagem({
+                                tipo: 'success',
+                                titulo: 'Sucesso !',
+                                mensagem: 'Contato removido !'
+                            });
                         }).catch(err => {
-                            console.log(err);
+                            this.mostrarMensagem({
+                                tipo:  'danger',
+                                titulo: 'Erro !',
+                                mensagem: err
+                            });
+                            //console.log(err);
                         });
                 }       
             });  
+    }
+
+    private mostrarMensagem(mensagem: {tipo: string, titulo:string,  mensagem: string}):void {
+
+        this.mensagem = mensagem;
+        this.montarMensagem(mensagem.tipo);
+        setTimeout(() => {
+            this.mensagem = undefined;
+        },2000)
+
+    }
+    private montarMensagem(tipo : string): void {
+        this.classesCss = {
+            'alert': true
+        };
+        this.classesCss ['alert-' + tipo] = true;
     }
 }
