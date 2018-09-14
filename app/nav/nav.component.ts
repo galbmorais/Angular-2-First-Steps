@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     moduleId: module.id,
@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
     styleUrls:[]
 })
 
-export class NavComponent{
+export class NavComponent implements OnInit{
 
+    isNew: boolean;
+
+    ngOnInit(){
+        this.isNew = false;
+    }
+
+    newSituation(stats: string ):void{
+        if(!this.isNew && stats === 'novo') this.isNew = true
+        else this.isNew = false;
+    }
 }
